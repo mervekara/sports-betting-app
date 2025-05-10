@@ -9,6 +9,7 @@
     "paths": {
       "~/*": ["./*"]
     },
+    "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
