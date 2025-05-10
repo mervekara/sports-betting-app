@@ -15,7 +15,7 @@ const BetsBasketItem = ({ outcome }: OutcomeItemProps) => {
       outcome.id,
       outcome.name,
       outcome.price,
-      outcome.matchName
+      outcome.matchName,
     );
     dispatch(toggleOutcome(outcome));
   };

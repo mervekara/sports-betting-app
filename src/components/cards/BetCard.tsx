@@ -44,7 +44,7 @@ export const BetCard = ({
       eventId,
       bookmaker.key,
       marketKey,
-      outcome.name
+      outcome.name,
     );
     return selectedOutcomes.some((so) => so.id === outcomeId);
   };
