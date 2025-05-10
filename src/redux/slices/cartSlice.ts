@@ -16,7 +16,7 @@ const cartSlice = createSlice({
     toggleOutcome: (state, action: PayloadAction<OutcomeInfo>) => {
       const newOutcome = action.payload;
       const existingIndex = state.selectedOutcomes.findIndex(
-        (item) => item.eventId === newOutcome.eventId
+        (item) => item.eventId === newOutcome.eventId,
       );
 
       if (

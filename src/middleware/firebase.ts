@@ -17,7 +17,7 @@ const firebaseConfig = {
 
 if (Object.values(firebaseConfig).some((v) => !v)) {
   throw new Error(
-    "❌ Missing Firebase configuration. Please check your environment variables."
+    "❌ Missing Firebase configuration. Please check your environment variables.",
   );
 }
 

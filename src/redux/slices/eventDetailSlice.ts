@@ -41,7 +41,7 @@ export const fetchEventDetail = createAsyncThunk<
       console.error("❌ Failed to fetch event detail:", err);
       return rejectWithValue("Failed to fetch event detail.");
     }
-  }
+  },
 );
 
 const eventDetailSlice = createSlice({
@@ -66,7 +66,7 @@ const eventDetailSlice = createSlice({
           state.status = FetchStatus.Succeeded;
           state.data = action.payload;
           state.error = null;
-        }
+        },
       )
       .addCase(fetchEventDetail.rejected, (state, action) => {
         state.status = FetchStatus.Failed;

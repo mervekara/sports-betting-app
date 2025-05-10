@@ -20,7 +20,7 @@ export const useFilteredEvents = () => {
     return events.filter((event) =>
       `${event.home_team} ${event.away_team}`
         .toLowerCase()
-        .includes(lowerSearch)
+        .includes(lowerSearch),
     );
   }, [events, searchTerm]);
 

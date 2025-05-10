@@ -6,7 +6,7 @@ import { fetchOddsBySport } from "../redux/slices/oddsSlice";
 export const useFetchInitialData = () => {
   const dispatch = useAppDispatch();
   const { status, sports, selectedSport } = useAppSelector(
-    (state) => state.sports
+    (state) => state.sports,
   );
 
   const oddsData = useAppSelector((state) => state.odds.data);

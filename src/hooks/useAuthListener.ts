@@ -31,7 +31,7 @@ const useAuthListener = (options?: UseAuthListenerOptions): AuthState => {
         console.error("Auth listener error:", error);
         setState({ user: null, loading: false, error });
         options?.onError?.(error);
-      }
+      },
     );
 
     return () => {

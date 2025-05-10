@@ -8,7 +8,7 @@ type Props = {
 
 const MatchList = ({ events }: Props) => {
   const validEvents = events.filter(
-    (event) => event.home_team && event.away_team
+    (event) => event.home_team && event.away_team,
   );
 
   if (validEvents.length === 0) {

@@ -34,7 +34,7 @@ export const useGroupedSports = () => {
         dispatch(fetchOddsBySport(sport.key));
       }
     },
-    [dispatch, odds]
+    [dispatch, odds],
   );
 
   return {

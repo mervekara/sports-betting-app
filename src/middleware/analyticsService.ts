@@ -4,7 +4,7 @@ import { initAnalytics } from "./firebase";
 export const sendMatchDetailEvent = async (
   matchId: string,
   homeTeam: string,
-  awayTeam: string
+  awayTeam: string,
 ) => {
   try {
     const analytics = await initAnalytics();
@@ -25,7 +25,7 @@ export const sendMatchDetailEvent = async (
 export const sendAddToCartEvent = async (
   itemId: string,
   itemName: string,
-  price: number
+  price: number,
 ) => {
   try {
     const analytics = await initAnalytics();
@@ -46,7 +46,7 @@ export const sendAddToCartEvent = async (
 export const sendRemoveFromCartEvent = async (
   itemId: string,
   itemName: string,
-  price: number
+  price: number,
 ) => {
   try {
     const analytics = await initAnalytics();

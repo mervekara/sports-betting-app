@@ -21,8 +21,8 @@ export const MatchBets = ({ selectedOutcomes, onToggle }: Props) => {
 
   const markets: string[] = Array.from(
     new Set(
-      data?.bookmakers.flatMap((bm: Bookmaker) => bm.markets.map((m) => m.key))
-    )
+      data?.bookmakers.flatMap((bm: Bookmaker) => bm.markets.map((m) => m.key)),
+    ),
   );
 
   const findMarket = (bookmaker: Bookmaker, marketKey: string) => {
