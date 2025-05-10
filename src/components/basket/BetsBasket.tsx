@@ -3,19 +3,48 @@ import BetSlipHeader from "./BetsBasketHeader";
 import TotalSummary from "./BetsBasketTotalSummary";
 import BetsBasketList from "../lists/BetsBasketList";
 import { useAppSelector } from "../../app/hooks";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BETTING_UI_TEXT } from "../../constants/baskets";
 import { Button } from "../ui/Button";
 
 const BetsBasket = () => {
   const outcomes = useAppSelector((state) => state.cart.selectedOutcomes) || [];
   const [isOpen, setIsOpen] = useState(true);
+  const basketRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (outcomes.length > 0) {
+      setIsOpen(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(outcomes)]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        window.innerWidth < 640 &&
+        basketRef.current &&
+        !basketRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
       <AnimatePresence>
         {isOpen && outcomes.length > 0 && (
           <motion.div
+            ref={basketRef}
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
