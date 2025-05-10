@@ -14,7 +14,9 @@ type Props = {
     bookmakerTitle: string;
     marketKey: string;
     outcome: Outcome;
+    matchName: string;
   }) => void;
+  matchName: string;
 };
 
 export const BetCard = ({
@@ -24,6 +26,7 @@ export const BetCard = ({
   marketOutcomes,
   selectedOutcomes,
   onToggle,
+  matchName,
 }: Props) => {
   const handleOutcomeClick = (outcome: Outcome) => {
     onToggle({
@@ -32,6 +35,7 @@ export const BetCard = ({
       bookmakerTitle: bookmaker.title,
       marketKey,
       outcome,
+      matchName,
     });
   };
 
@@ -40,7 +44,7 @@ export const BetCard = ({
       eventId,
       bookmaker.key,
       marketKey,
-      outcome.name,
+      outcome.name
     );
     return selectedOutcomes.some((so) => so.id === outcomeId);
   };

@@ -22,7 +22,7 @@ const MatchDetail = () => {
 
   const allOdds = useAppSelector((state) => state.odds.data);
   const selectedOutcome = useAppSelector(
-    (state) => state.cart.selectedOutcomes,
+    (state) => state.cart.selectedOutcomes
   );
   const { data, status } = useAppSelector((state) => state.eventDetail);
 
@@ -54,19 +54,21 @@ const MatchDetail = () => {
     marketKey: string;
     outcome: { name: string; price: number };
     bookmakerTitle: string;
+    matchName: string;
   }) => {
     {
       const outcomeId = createOutcomeId(
         payload.eventId,
         payload.bookmakerKey,
         payload.marketKey,
-        payload.outcome.name,
+        payload.outcome.name
       );
 
       await sendAddToCartEvent(
         outcomeId,
         payload.outcome.name,
         payload.outcome.price,
+        payload.matchName
       );
 
       dispatch(
@@ -77,7 +79,8 @@ const MatchDetail = () => {
           bookmaker: payload.bookmakerTitle,
           market: payload.marketKey,
           eventId: payload.eventId,
-        }),
+          matchName: `${data?.home_team} - ${data?.away_team}`,
+        })
       );
     }
   };

@@ -11,16 +11,22 @@ const BetsBasketItem = ({ outcome }: OutcomeItemProps) => {
   const dispatch = useAppDispatch();
 
   const handleRemove = async () => {
-    await sendRemoveFromCartEvent(outcome.id, outcome.name, outcome.price);
+    await sendRemoveFromCartEvent(
+      outcome.id,
+      outcome.name,
+      outcome.price,
+      outcome.matchName
+    );
     dispatch(toggleOutcome(outcome));
   };
 
   return (
     <li className="flex justify-between items-start p-3 rounded-lg bg-gray-100 hover:bg-gray-200 transition">
       <div className="space-y-1">
-        <p className="text-sm font-medium text-gray-800">{outcome.name}</p>
+        <p className="text-sm font-medium text-gray-800">{outcome.matchName}</p>
+        <p className="text-xs text-gray-500"> {outcome.bookmaker}</p>
         <p className="text-xs text-gray-500">
-          {outcome.market} — {outcome.bookmaker}
+          {outcome.market} — {outcome.name}
         </p>
         <p className="text-sm text-gray-700">💸 {outcome.price}</p>
       </div>

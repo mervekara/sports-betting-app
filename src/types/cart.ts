@@ -5,4 +5,5 @@ export interface OutcomeInfo {
   bookmaker: string;
   market: string;
   eventId: string;
+  matchName: string;
 }

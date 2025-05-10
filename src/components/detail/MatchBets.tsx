@@ -10,6 +10,7 @@ type Props = {
     bookmakerTitle: string;
     marketKey: string;
     outcome: Outcome;
+    matchName: string;
   }) => void;
 };
 
@@ -21,8 +22,8 @@ export const MatchBets = ({ selectedOutcomes, onToggle }: Props) => {
 
   const markets: string[] = Array.from(
     new Set(
-      data?.bookmakers.flatMap((bm: Bookmaker) => bm.markets.map((m) => m.key)),
-    ),
+      data?.bookmakers.flatMap((bm: Bookmaker) => bm.markets.map((m) => m.key))
+    )
   );
 
   const findMarket = (bookmaker: Bookmaker, marketKey: string) => {
@@ -51,6 +52,7 @@ export const MatchBets = ({ selectedOutcomes, onToggle }: Props) => {
                   marketOutcomes={market.outcomes}
                   selectedOutcomes={selectedOutcomes}
                   onToggle={onToggle}
+                  matchName={`${data.home_team} - ${data.away_team}`}
                 />
               );
             })}
