@@ -8,6 +8,7 @@ interface Props {
   isOpen: boolean;
   onToggle: () => void;
   onSportClick: (group: string, sport: Sport) => void;
+  onCloseSidebar?: () => void;
 }
 
 export const SportsGroupAccordion = ({
@@ -16,6 +17,7 @@ export const SportsGroupAccordion = ({
   isOpen,
   onToggle,
   onSportClick,
+  onCloseSidebar,
 }: Props) => {
   return (
     <Accordion label={group} isOpen={isOpen} onToggle={onToggle}>
@@ -25,6 +27,7 @@ export const SportsGroupAccordion = ({
             key={sport.key}
             sport={sport}
             onClick={() => onSportClick(group, sport)}
+            onCloseSidebar={onCloseSidebar}
           />
         ))}
       </ul>

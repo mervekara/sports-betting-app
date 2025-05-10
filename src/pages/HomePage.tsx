@@ -28,7 +28,7 @@ const HomePage = () => {
   return (
     <>
       <MainLayout
-        sidebar={<SportsSidebar />}
+        sidebar={<SportsSidebar onItemClick={() => setSidebarOpen(false)} />}
         isSidebarOpen={isSidebarOpen}
         onCloseSidebar={() => setSidebarOpen(false)}
       >

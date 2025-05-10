@@ -1,7 +1,11 @@
 import { useGroupedSports } from "../../hooks/useGroupedSports";
 import { SportsGroupAccordion } from "./SportsGroupAccordion";
 
-export const SportsSidebar = () => {
+interface SportsSidebarProps {
+  onItemClick?: () => void;
+}
+
+export const SportsSidebar = ({ onItemClick }: SportsSidebarProps) => {
   const { groupedSports, openGroup, setOpenGroup, handleSportClick } =
     useGroupedSports();
 
@@ -16,10 +20,11 @@ export const SportsSidebar = () => {
             group={group}
             sports={sports}
             isOpen={openGroup === group}
-            onToggle={() =>
-              setOpenGroup((prev) => (prev === group ? null : group))
-            }
+            onToggle={() => {
+              setOpenGroup((prev) => (prev === group ? null : group));
+            }}
             onSportClick={handleSportClick}
+            onCloseSidebar={onItemClick}
           />
         ))}
       </div>

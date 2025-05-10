@@ -27,7 +27,6 @@ export const useGroupedSports = () => {
 
   const handleSportClick = useCallback(
     (group: string, sport: Sport) => {
-      // Toggle open group
       setOpenGroup((prev) => (prev === group ? null : group));
       dispatch(setSelectedSport(sport));
 
